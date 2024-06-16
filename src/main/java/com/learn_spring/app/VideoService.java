@@ -1,5 +1,6 @@
 package com.learn_spring.app;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -18,5 +19,13 @@ public class VideoService {
   
   public List<Video> getVideos() {
     return videos;
+  }
+
+  public Video create(Video newVideo) {
+    // videos.add(newVideo);
+    List<Video> extend = new ArrayList<>(videos);
+    extend.add(newVideo);
+    this.videos = List.copyOf(extend);
+    return newVideo;
   }
 }
